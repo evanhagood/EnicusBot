@@ -25,12 +25,17 @@ public class EventListener extends ListenerAdapter {
         System.out.println("Done!");
     }
 
+    /*
+    * TODO: fix this
+    * Discord has deprecated the use of text commands in favor for /. Implement slash commands instead
+    * also this is just a bad way to implement this regardless... no way to change prefix among other things.
+     */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String message = event.getMessage().getContentRaw();
         switch(message) {
-            case "ping": event.getChannel().sendMessage(event.getAuthor().getAsMention() + "pong!").queue(); break;
-            case "test": event.getChannel().sendMessage("FUCK YA MUTHA!").queue(); break;
+            case "$ping": event.getChannel().sendMessage(event.getAuthor().getAsMention() + "pong!").queue(); break;
+            case "$test": event.getChannel().sendMessage("test!").queue(); break;
             case "$forthecompany": forTheCompany(event); break;
         }
     }
